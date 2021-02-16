@@ -1,6 +1,12 @@
 # Packages in a nutshell. A Forwards Package Development module
 
-[Emma's slides](https://3mmarand.github.io/workshops/package-dev-modules/slides/01-packages-in-a-nutshell/packages-in-a-nutshell.html)
+[Emma Rand's Day 1 slides](https://3mmarand.github.io/workshops/package-dev-modules/slides/01-packages-in-a-nutshell/packages-in-a-nutshell.html) Packages in a nutshell
+
+[Mine Çetinkaya-Rundel's Day 2 slides](http://bit.ly/pkg-dev-2) Setting up your system
+
+Day 3 slides
+
+# Day 1 Packages in a nutshell
 
 Some commands:
 
@@ -118,7 +124,61 @@ Will need `devtools::loadl_all()` when developing a pkg. `devtools::load_all()` 
 - R Packages Ch2 "[The whole game](https://r-pkgs.org/whole-game.html)" 
 - Hillary Parker's [Writing an R package from scratch](https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/)
 - Karl Broman's [R package primer a minimal tutorial](https://kbroman.org/pkg_primer/)
-  
+
+# Day 2 Setting up your system
+Forwards Package Development module
+[Day 2 slides Mine Çetinkaya-Rundel](http://bit.ly/pkg-dev-2)
+
+
+- Installing released packages from CRAN using `install.packages()` -- binary
+- Installing development packages using `devtools::install_github()` -- source
+- Once installed, binary and source packages are identical
+
+`remotes::install_github()` installs fewer dependencies; a recent thing when big devtools was broken to smaller packages
+
+Verify system setup. Run the following in the Console.
+
+> `install.packages(devtools)`
+> `library(devtools)`
+> `has_devel()`
+Need Xcode. If Xcode is installed, get msg `## Your system is ready to build packages!`
+
+## Using git and GitHub
+> `git --version`
+`git version 2.30.0`
+
+Note you can put your GitHub PAT in 1Password (i.e. don't reveal it)
+
+*** fix this. see [Get help with GitHub personal access tokens](https://usethis.r-lib.org/reference/github-token.html)
+```
+> git_sitrep()
+Git config (global)
+● Name: 'Stefanie Butland'
+● Email: 'stefaniebutland@gmail.com'
+● Vaccinated: TRUE
+● Default Git protocol: 'https'
+GitHub
+● Default GitHub host: 'https://github.com'
+● Personal access token for 'https://github.com': '<discovered>'
+● GitHub user: 'stefaniebutland'
+● Token scopes: 'repo, workflow'
+x Token may be mis-scoped: 'repo' and 'user' are highly recommended scopes
+  The 'workflow' scope is needed to manage GitHub Actions workflow files
+  If you are troubleshooting, consider this
+x Can't retrieve registered email address(es)
+  If you are troubleshooting, check GitHub host, token, and token scopes
+Git repo for current project
+ℹ No active usethis project
+```
+
+`usethis::create_package()` will create a folder with the package name you choose, including .Rproj fileand a Git pane to commit
+
+
+
+
+
+
+
   
   
 
