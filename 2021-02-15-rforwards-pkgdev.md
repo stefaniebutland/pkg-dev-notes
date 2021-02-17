@@ -4,6 +4,8 @@
 
 [Mine Çetinkaya-Rundel's Day 2 slides](http://bit.ly/pkg-dev-2) Setting up your system
 
+[Emma Rand's Day 3 slides](http://bit.ly/pkg-dev-3) Your first package
+
 Day 3 slides
 
 # Day 1 Packages in a nutshell
@@ -173,6 +175,111 @@ Git repo for current project
 
 `usethis::create_package()` will create a folder with the package name you choose, including .Rproj fileand a Git pane to commit
 
+
+# Day 3 Your first package
+
+```
+> usethis::create_package("~/Desktop/mypackage")
+✓ Creating '/Users/stefaniebutland/Desktop/mypackage/'
+✓ Setting active project to '/Users/stefaniebutland/Desktop/mypackage'
+✓ Creating 'R/'
+✓ Writing 'DESCRIPTION'
+Package: mypackage
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R (parsed):
+    * First Last <first.last@example.com> [aut, cre] (YOUR-ORCID-ID)
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+✓ Writing 'NAMESPACE'
+✓ Writing 'mypackage.Rproj'
+✓ Adding '^mypackage\\.Rproj$' to '.Rbuildignore'
+✓ Adding '.Rproj.user' to '.gitignore'
+✓ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
+✓ Opening '/Users/stefaniebutland/Desktop/mypackage/' in new RStudio session
+✓ Setting active project to '<no active project>'
+```
+Creates RStudio project and the files above.
+
+```
+> usethis::use_r("animal_sounds")
+✓ Setting active project to '/Users/stefaniebutland/Desktop/mypackage'
+● Modify 'R/animal_sounds.R'
+● Call `use_test()` to create a matching test file
+```
+
+in the .R file, cp paste:
+```
+animal_sounds <- function(animal, sound) {
+  assertthat::assert_that(
+    assertthat::is.string(animal),
+    assertthat::is.string(sound)
+  )
+  paste0("The ", animal, " goes ", sound, "!")
+}
+```
+(creating functions not covered in this workshop)
+
+To run this, you don't use `source(file)`, use `devtools::loadl_all()` = Cmd shift L
+
+routine: edit, Cmd-shift-L (load all), run with cmd `animal_sounds` which is the name of the function, change things, load all, run etc 
+
+Run `devtools::check()`. Output lots of stuff plus the following: 
+```
+> checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
+
+> checking dependencies in R code ... WARNING
+  '::' or ':::' import not declared from: ‘assertthat’
+  
+  0 errors ✓ | 2 warnings x | 0 notes ✓
+  ```
+  
+Add a license with `usethis::use_mit_license("Emma Rand")` and it automatically updates the DESCRIPTION file and .Rbuildignrore.
+
+re-run `devtools::check()` now that you've changed DESC and license. 
+
+```
+── R CMD check results ─────────── mypackage 0.0.0.9000 ────
+Duration: 27.9s
+
+> checking dependencies in R code ... WARNING
+  '::' or ':::' import not declared from: ‘assertthat’
+
+> checking DESCRIPTION meta-information ... NOTE
+  Malformed Description field: should contain one or more complete sentences.
+
+0 errors ✓ | 1 warning x | 1 note x
+```
+
+## Use git and GitHub
+`usethis::use_git("initial commit")` then `usethis::use_github()` creates a public repo as long as your GitHub is set up.
+
+
+
+
+## Summary
+- `usethis::create_package()` starts a package with infrastructure as an RStudio Project
+- functions go in .R files in the \R directory and usethis::use_r() will open a file for editing
+- devtools::load_all() loads your package for testing and we use it often
+- devtools::check() runs the command line tool R CMD check from within R and checks your package in in working order
+- DESCRIPTION contains metadata about your package and its presence is the defining feature of a package
+- usethis::use_mit_license() is a helper for adding a MIT license (others are available)
+- there is a lot more to package documentation and package dependencies!
+- usethis::use_git() and `usethis::use_github()` or `usethis::use_github(private = TRUE)` are helper functions for version control
+
+
+## Documentation
+
+Put your cursor anywhere in the code, RStudio > Code > Insert roxygen skeleton. Then `> devtools::document()` and look for it with `?animal_sounds` and you get a man page you can edit!
 
 
 
