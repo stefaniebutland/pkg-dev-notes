@@ -1,12 +1,12 @@
 # Packages in a nutshell. A Forwards Package Development module
 
+very rough mostly unedited notes
+
 [Emma Rand's Day 1 slides](https://3mmarand.github.io/workshops/package-dev-modules/slides/01-packages-in-a-nutshell/packages-in-a-nutshell.html) Packages in a nutshell
 
 [Mine Çetinkaya-Rundel's Day 2 slides](http://bit.ly/pkg-dev-2) Setting up your system
 
 [Emma Rand's Day 3 slides](http://bit.ly/pkg-dev-3) Your first package
-
-Day 3 slides
 
 # Day 1 Packages in a nutshell
 
