@@ -1,2 +1,2 @@
 # pkg-dev-notes
-notes on pkg development
+R Forwards Package Dev 3 x 1hr workshops with Emma Rand and Mine Çetinkaya-Rundel
