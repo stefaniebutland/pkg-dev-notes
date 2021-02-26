@@ -51,10 +51,14 @@ note if you assign `dog <- dogCheck(height_cm = 50, has_fur = TRUE)` (or somethi
 
 ## Guardrails: Documentation
 
-See slide #18
+See slide #18; see `possible_dog_part4.R`
+Roxygen2 format
+
+need to alternate doc - function - doc - function
+
 ```
 #' Explain what function does in a single line
-#' @param a Type. Explain role of one of the arguments
+#' @param a Type. Explain role of one of the arguments (here @param means argument)
 #' @param b Type. Explain role of one of the arguments
 #'
 #' @return Type. Description of what it represents
@@ -62,4 +66,28 @@ See slide #18
 #' @examples 
 #' \dontrun{myFunction(a = 5, b = 3)}
 ```
+
+## Guardrails: Type Check
+slide 21; see `possible_dog_part5.R`
+
+## Guardrails: Tests
+slide 22; see `possible_dog_part6.R`
+`library(testthat)`
+
+test for the right stuff, but also test error messages for when they happen
+
+hmmm part6.R  in RStudio shows me `Run Tests` option, but not option to run a subset of the code. Highlight code and `Cmd-return` lets you run the code
+
+## Environments
+slide 25
+
+`d <<- a*b` using double arrow puts it in global envt (outside your function)
+
+
+
+
+
+
+
+
 
