@@ -1,6 +1,8 @@
 # pkg-dev-notes
-R Forwards Package Dev 3 x 1hr workshops with Emma Rand and Mine Çetinkaya-Rundel
+Feb 15-17: R Forwards Package Dev 3 x 1hr workshops with Emma Rand and Mine Çetinkaya-Rundel
 
 Made a [package](../../../mypackage)
 
-Writing Functions workshop by R-Ladies East Lansing and Chicago, with Stephanie Kirmer, [Notes](2021-02-26-r-functions.md)
+Feb 26: Writing Functions workshop by R-Ladies East Lansing and Chicago, with Stephanie Kirmer, [Notes](2021-02-26-r-functions.md)
+
+Mar 26: [Become an R package developer!](https://github.com/rladies-eastlansing/2021-rpkgdev), with Maëlle Salmon!
